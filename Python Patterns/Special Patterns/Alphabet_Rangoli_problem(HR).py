@@ -96,3 +96,13 @@ for line in range(value-1):
     for dash in range (0, 2 * (line+1)):
         print("-" , end ="")
     print()
+size = int(input("Enter the size of Rangoli -> "))
+for line in range(0 , 2 * size):
+    for dash in range(0, ((2 * size)-(2 * (line+1)))):
+        print("-", end = "")
+    for char in range(0, (2 * line + 1)):
+        if(char <= ((2 *line +1)//2 +1 )):
+            print(chr(101-char), end = "")
+        else:
+            print(chr(101+char), end = "")
+    print()
