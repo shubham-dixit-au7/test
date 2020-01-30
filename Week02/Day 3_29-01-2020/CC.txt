@@ -27,11 +27,35 @@ Question 2) https://www.hackerrank.com/challenges/alphabet-rangoli/problem.
 
 Answer- Python Code(File- alpha_rangoli_prob(HR).py)-
 
+                        value = int(input("Enter the size of Alphabet Rangoli -> ")) 
+                        for line in range(1,(value + 1)):
+                            print("-" * (2* (value - line)), end="")
+                            s1=(chr(96 + value))
+                            s2=""
+                            for char in range (1,line):
+                                s1= s1 + ("-" + (chr(96 + value - char)))
+                            s2= s1[::-1]
+                            print(s1 + s2[1:], end="")
+                            print("-"*(2*(value-line)))
+
+                        for line in range(value-1,0,-1):
+                            print("-" * (2* (value - line)), end="")
+                            s1=(chr(96 + value))
+                            s2=""
+                            for char in range (1,line):
+                                s1= s1 + ("-" + (chr(96 + value - char)))
+                            s2= s1[::-1]
+                            print(s1 + s2[1:], end="")
+                            print("-"*(2*(value-line)))
 
 
 Question 3) Print multiplication table of 14.
 
 Answer- Python Code(File- Multiplication Table(14).py)-
+
+		for number in range(1,11):
+		    print("14 x ", number , " = " , 14*number)
+
 
 
  
