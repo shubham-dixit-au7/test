@@ -79,30 +79,30 @@
 
 
 
+
 value = int(input("Enter the no. of rows -> ")) 
 for line in range(1, value+1):
-    for dash in range (1, 2 * (value-line+1)):
+    for dash in range (1, 2 * (value-line)+1):
         print("-" ,end = "")
-    for star in range (0, (2 * line) - 1 ):
-        print(chr(105 - star) + "-" , end ="")
-    for dash in range (1, 2*(value-line+1)):
+    for star in range (0, line ):
+        print(chr((96 + value) - star) + "-" , end ="")
+    for star in range (1, line ):
+        print(chr((96 + value) + (star+1) - line ) + "-" , end ="")
+    for dash in range (1, 2*(value-line)):
         print("-" ,end = "")
     print()
+
+
 for line in range(value-1):
-    for dash in range (0, 2 * (line+1)+1):
-        print("-" , end ="")
-    for star in range (0,  (2 * (value-line-1)-1)):
-        print(chr(105 - star) + "-",end = "")
     for dash in range (0, 2 * (line+1)):
         print("-" , end ="")
-    print()
-size = int(input("Enter the size of Rangoli -> "))
-for line in range(0 , 2 * size):
-    for dash in range(0, ((2 * size)-(2 * (line+1)))):
-        print("-", end = "")
-    for char in range(0, (2 * line + 1)):
-        if(char <= ((2 *line +1)//2 +1 )):
-            print(chr(101-char), end = "")
-        else:
-            print(chr(101+char), end = "")
+    
+    for star in range (0,  ((value-line-1))):
+        print(chr((96 + value)- star) + "-",end = "")
+    
+    for star in range (0, ((value-line-2))):
+        print(chr((94 + value) + line +star)+ "-",end= "")
+    
+    for dash in range (0, 2 * (line)+1):
+        print("-" , end ="")
     print()
