@@ -40,28 +40,47 @@ Question 3) Write a Python function that accepts a string and calculate the numb
 
 Answer-Python Code(File- calc_upper_lower.py)
 
-            string = input("Enter a String -> ")
-            upper, lower= 0, 0
-            for i in string:
-                if(i.isupper()):
-                    upper=upper+1
-                elif(i.islower()):
-                    lower=lower+1
-            print("Total no. of uppercase characters present in string are " , upper)
-            print("Total no. of lowercase characters present in string are " , lower)
+                        def countUpperCase(string):
+                            upper= 0
+                            for i in string:
+                                if(i.isupper()):
+                                    upper=upper+1
+                            return upper    
+
+                        def countLowerCase(string):
+                            lower= 0
+                            for i in string:
+                                if(i.islower()):
+                                    lower=lower+1
+                            return lower
+
+
+                        string = input("Enter a String -> ")
+                        upper = countUpperCase(string)
+                        lower = countLowerCase(string)
+                        print("Total no. of uppercase characters present in string are " , upper)
+                        print("Total no. of lowercase characters present in string are " , lower)
 
 
 
 Question 4) Write a Python function that takes a number as a parameter and check the number is prime or not. 
 
-Answer- Python Code(File- calc_upper_lower.py)-
+Answer- Python Code(File- Is_prime.py)-
 
-                        string = input("Enter a String -> ")
-                        upper, lower= 0, 0
-                        for i in string:
-                            if(i.isupper()):
-                                upper=upper+1
-                            elif(i.islower()):
-                                lower=lower+1
-                        print("Total no. of uppercase characters present in string are " , upper)
-                        print("Total no. of lowercase characters present in string are " , lower)
+                        def isPrime(user_input):
+                            if (user_input == 1):
+                                return False
+                            else:
+                                for i in range(2, user_input):
+                                    if((user_input % i) == 0):
+                                        return False
+                                return True
+                            
+
+                        user_input = int(input("Enter a Number -> "))
+                        result = isPrime(user_input)
+                        if (result):
+                            print(result)
+                            print("The number which you entered is prime")
+                        else:
+                            print("The number which you entered is not prime")
