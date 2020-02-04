@@ -1,0 +1,55 @@
+Question 1- Write a Python program to sort (ascending and descending) a dictionary by value. [use sorted()]
+
+Answer- Python Code(File- Ques1.py)-
+
+		First Method-
+		 fruits = {"Orange":2 , "Banana": 3, "Mango":6 ,"Papaya":1, "Guava": 4}
+		 new_fruits = dict()
+		 for key , value in fruits.items(): 
+		 		new_fruits[value] = key
+
+		 print("Original List of Items present in dictionary are ->", new_fruits.items())
+		 print("Sorted List of Items in ascending order present in dictionary are ->",  sorted(new_fruits.items()))
+		 print("Sorted List of Items in descending order present in dictionary are ->", sorted(new_fruits.items(), reverse= True) )
+
+
+		Second Method-
+		def take_second(elem):
+		    return elem[1]
+
+
+		fruits = {"Orange":2 , "Banana": 3, "Mango":6 ,"Papaya":1, "Guava": 4}
+		print("Original List of Items present in dictionary are ->", fruits.items())
+		print("Sorted List of Items in ascending order present in dictionary are ->",  sorted(fruits.items(), key=take_second))
+		print("Sorted List of Items in descending order present in dictionary are ->", sorted(fruits.items(), key=take_second , reverse= True) )
+
+
+Question 2- Write a Python program to combine two dictionary adding values for common keys.
+			d1 = {'a': 100, 'b': 200, 'c':300}
+			d2 = {'a': 300, 'b': 200, 'd':400}
+			Sample output: Counter({'a': 400, 'b': 400, 'd': 400, 'c': 300})
+
+Answer- Python Code(File- Ques2.py)-
+
+		d1 = {'a': 100, 'b': 200, 'c':300}
+		d2 = {'a': 300, 'b': 200, 'd':400}
+		print("First Dictionary -> ", d1)
+		print("Second Dictionary ->", d2)
+		d2lst = list(d2.keys())
+		d1lst = list(d1.keys())
+		for i in d2lst:
+			if i not in d1lst:
+				newKey = i
+		d3 = {}
+		d3.update(d1)
+		d3[newKey] = 0
+		for key, value in d3.items():
+			for key1 , value1 in d2.items():
+				if(key == key1):
+					value = value + value1
+					d3[key] = value
+				else:
+					pass
+		print("Merged Dictionary ->", d3)
+
+
