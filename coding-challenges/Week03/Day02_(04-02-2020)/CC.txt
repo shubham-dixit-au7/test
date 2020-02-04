@@ -1,0 +1,50 @@
+Question 1- Write a Python program to iterate over dictionaries using for loops.
+
+Answer- Python Code(File- Ques1.py)-
+		
+		fruits = { "Orange": 2 , "Mango": 4 , "Banana": 1 , "Gauva":3 }
+		for key, value in fruits.items():
+			print("No. of" , key , "are", value)
+
+
+Question 2- Write a Python script to generate and print a dictionary that contains a number (between 1 and n) in the form (x, x*x).
+
+Answer- Python Code(File- Ques2.py)-
+		
+		user_input = int(input("Enter a Number -> "))
+		d = dict()
+
+		for i in range(1 , user_input + 1):
+			d[i] = i ** 2
+		print(d)
+
+
+Question 3- Write a Python program to create a dictionary from a string.
+			Note: Track the count of the letters from the string.
+			Sample string : 'w3resource'
+			Expected output: {'3': 1, 's': 1, 'r': 2, 'u': 1, 'w': 1, 'c': 1, 'e': 2, 'o': 1}
+
+
+Answer- Python Code(File- Ques3.py)-
+		 
+		 First method-
+
+		 user_input = input("Enter a String ->")
+		 counts= {}
+		 for i in user_input:
+		 	if not i in counts:
+		 		counts[i] = 1
+		 	else:
+		 		counts[i] += 1
+		 print(counts)
+
+
+		Second method-
+
+		user_input = input("Enter a String -> ")
+		counts= {}
+
+		for i in user_input:
+			counts[i]=counts.get(i,0) + 1
+		print(counts)
+
