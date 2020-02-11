@@ -39,3 +39,11 @@ Answer- Python Code(File- Ques1.py)-
 Question 2) Optimize the counting sort algorithm.
 
 Answer- 
+		Counting Sort works in the following way:
+			-Inputs the numbers
+			-Extracts the desired key value from each input
+			-Counts the frequency of occurrence of each key i in the ith position of the count array(intermediate array)
+			-Calculates the exact position of the key (in turn the number itself in the output array )
+			-Displays the hence sorted output array
+
+		The basic mechanism of counting sort is to count the frequency of occurrences of each key and then performing a prefix sum. It has three steps, constructing a histogram of key frequencies, calculating the start position of each index and then displaying the sorted array.
