@@ -1,10 +1,10 @@
-Question 1) 
+Question 1) Using the recursive fibonacci number function, print first n fibonacci numbers. (Any Answer containing loops will not be checked)
 
 Answer- Python Code(File- .py)-
 
 				
 
-Question 2) 
+Question 2) https://www.hackerearth.com/practice/basic-programming/recursion/recursion-and-backtracking/practice-problems/algorithm/n-queensrecursion-tutorial/
 
 Answer- Python Code(File- .py)-
 
