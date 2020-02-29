@@ -1,0 +1,209 @@
+Question 2- Giant Numbers.
+
+Answer- Python Code-
+                def multiply(inputLst):
+                    if(inputLst[0] == 0 or inputLst[1] == 0):
+                        return 0
+                    else:
+                        return inputLst[0] * inputLst[1]
+                inputLst = list(map(int,input().split()))
+                result = multiply(inputLst)
+                print(result)
+
+
+Question 3- Remove Duplicates in Linked List.
+
+Answer- Python Code-
+                class Node:
+                    def __init__(self, data):
+                        self.data = data
+                        self.next = None
+
+                class LinkedList:
+                    def __init__ (self):
+                        self.head = None
+                        self.end = None
+                    
+                    def append(self, data):
+                        if self.end is not None:
+                            self.end.next = Node(data)
+                            self.end = self.end.next
+                        else:
+                            self.head = Node(data)
+                            self.end = self.head
+                            
+                    def prevNode(self, node):
+                        cNode = self.head
+                        while(cNode and cNode.next != node):
+                            cNode = cNode.next
+                        return cNode
+                    
+                    def remove(self, node):
+                        pNode =self.prevNode(node)
+                        if pNode is not None:
+                            pNode.next = node.next
+                        else:
+                            self.head =self.head.next
+                    
+                    def disp(self):
+                        cNode = self.head
+                        while cNode:
+                            print(cNode.data, end=' ')
+                            cNode = cNode.next
+                            
+                def delDuplicate(linkLst):
+                    cNode = linkLst.head
+                    while cNode:
+                        data = cNode.data
+                        nNode = cNode.next
+                        while nNode:
+                            if (nNode.data == data):
+                                linkLst.remove(nNode)
+                            nNode = nNode.next
+                        cNode = cNode.next
+
+                        
+                linkLst = LinkedList()
+                inputLst= list(map(int,input().split()))
+                for i in inputLst:
+                    linkLst.append(i)
+                delDuplicate(linkLst)
+                linkLst.disp()
+
+
+Question 4- College Library in trouble.
+
+Answer- Python Code-
+                def totalPages(inputLst, n, students):
+                    if(n < students):
+                        return -1
+                    
+                    pageSum , result = 0, 1000000000
+                    for i in range(n):
+                        pageSum += inputLst[i]
+                    begin = 0
+                    end = pageSum
+                    
+                    #binary search
+                    while(begin <= end):
+                        mid =(begin +end)//2
+                        if(condition(inputLst, n, students, mid)):
+                            result = min(result, mid)
+                            end = mid-1
+                        else:
+                            begin = mid+1
+                    return result
+
+                def condition(inputLst, n, students, mid):
+                    sum, count = 0, 1
+                    for i in range(n):
+                        if (sum+ inputLst[i] > mid):
+                            count += 1
+                            sum = inputLst[i]
+                            if(count >students):
+                                return False
+                        else:
+                            sum += inputLst[i]
+                        if (inputLst[i] > mid):
+                            return False
+                    return True
+
+                inputLst = list(map(int, input().split()))
+                n = len(inputLst)
+                print(n)
+                students = int(input())
+                result = totalPages(inputLst, n, students)
+                print(result)
+
+
+Question 5- World War 3.
+
+Answer- Python Code-
+                def damagedArea(inputLst,n):
+                    stack = [-1]
+                    maxArea = 0
+                    baseArea = 600
+
+                    for i in range(n):
+                        while stack[-1] != -1 and inputLst[stack[-1]] >= inputLst[i]:
+                            lstElemInd = stack.pop()
+                            maxArea = max(maxArea, inputLst[lstElemInd] * (i - stack[-1] - 1))
+                        stack.append(i)
+                    while stack[-1] != -1:
+                        lstElemInd = stack.pop()
+                        maxArea = max(maxArea, inputLst[lstElemInd] * (n - stack[-1] - 1))
+                    return maxArea * baseArea
+
+
+                  
+                inputLst = list(map(int,input().split()))
+                n = len(inputLst) 
+                result = damagedArea(inputLst, n)
+                print(result)
+
+
+
+
+Question 6- All Built Ins.
+
+Answer- Python Code-
+                def StringSort(line):
+                    res = ''.join(sorted(line, key = lambda s: s.casefold())) 
+                    return res
+                def toCaps(line):
+                    res = line.upper()
+                    return res
+                def reversal(line):
+                    res = line[::-1]
+                    return res
+
+
+
+
+                line1 = input()
+                if(line1 == 'string'):
+                    line2 = input()
+                    
+                    line3 = input()
+                    if(line3 == 'all caps'):
+                        print(toCaps(line2))
+                    
+                    line4 = input()
+                    if(line4 == 'reverse'):
+                        print(reversal(line2))
+                    
+                    line5 = input()
+                    if(line5 =='sort'):
+                        print(StringSort(line2))
+                    
+                    line6 = input()
+                    if(line6 == 'isdigit'):
+                        print(line2.isdigit())
+                    
+                    line7 =list(input().split())
+                    if(line7[0] == 'find'):
+                        print(line2.find(line7[1]))
+                        
+                        
+                elif(line1 == 'list'):
+                    line2 = list(map(int, input().split()))
+                    
+                    #append
+                    line3 = list(input().split())
+                    if(line3[0] == 'append'):
+                        tempList = line2
+                        tempList.append(int(line3[1]))
+                        print(tempList)
+                    
+                    #reverse
+                    line4 = input()
+                    if(line4 == 'reverse'):
+                        tempList = reversal(line2)
+                        print(tempList)
+                        
+                    #sort
+                    line5 = input()
+                    if(line5 =='sort'):
+                        tempList = line2
+                        tempList.sort()
+                        print(tempList)
