@@ -1,3 +1,65 @@
+Question- Thanos Vs Tony Stark
+
+Answer- Python Code-
+                import sys
+
+                def cost(str):
+                    strength = 1
+                    damage = 0
+                    for element in str:
+                        if(element == 'C'):
+                            strength = strength * 2
+                        if(element == 'S'):
+                            damage = damage + strength
+                    return damage
+
+                def findPattern(str):
+                    j = len(str) - 1
+                    while(j > 0):
+                        if(str[j] == 'S' and str[j-1] == 'C'):
+                            return j
+                        j = j-1
+                    return -1
+
+                def interChange(val, str, damage):
+                    ans = -1;
+                    j = len(str) - 1
+                    test = 0
+                    
+                    while(test != -1 and damage > val):
+                        test = findPattern(str)
+                        text = str[:test-1] + 'S' + 'C'+ str[test+1:]
+                        str = text
+                        if(ans == -1):
+                            ans = 1
+                        else:
+                            ans = ans + 1
+                        damage = cost(str)
+                    if(test == -1):
+                        return -1
+                    else:
+                        return ans        
+
+                for line in sys.stdin:
+                    word = line.split(" ")
+                    value = int(word[0])
+                    if(len(word) == 1):
+                        continue
+                    damage = cost(word[1])
+                    if(damage <= value):
+                        print(0)
+                    else:
+                        answer = interChange(value, word[1], damage)
+                        if(answer == -1):
+                            print("IMPOSSIBLE") 
+                        else:
+                            print(answer)
+
+
+
+
+
+
 Question 2- Giant Numbers.
 
 Answer- Python Code-
@@ -147,34 +209,76 @@ Answer- Python Code-
 Question 6- All Built Ins.
 
 Answer- Python Code-
-                def StringSort(line):
-                    res = ''.join(sorted(line, key = lambda s: s.casefold())) 
-                    return res
-                def toCaps(line):
-                    res = line.upper()
-                    return res
-                def reversal(line):
-                    res = line[::-1]
-                    return res
+               import sys
 
 
+                def split(word): 
+                    return [char for char in word] 
 
+                ar=list()
+                n=input()
+                n1=input()
+                n_ar=n1.strip().split(" ")
+                for i in sys.stdin:
+                    #print(input())
+                    val=i.strip().split(" ")
+                    cmd=val[0]
+                    #print(cmd)
+                    if(cmd=="separate"):
+                        val1=val[2]
+                        temp = n_ar.copy()
+                        str1 = val1.join(str(a) for a in temp)
+                        print(str1)
+                    if(cmd=="sort" and n == "list"):
+                        temp = n_ar.copy()
+                        for i in range(len(temp)):
+                            temp[i] = int(temp[i])
+                        temp.sort()
+                        #print(temp)
+                        str1 = ' '.join(str(a) for a in temp)
+                        print(str1)
+                    if(cmd=="sort" and n == "string"):
+                        temp = split(n1)
+                        #print(temp)
+                        temp = sorted(temp, key=str.lower)
+                        #print(temp)
+                        str1 = ''.join(str(a) for a in temp)
+                        print(str1)
+                    if(cmd=="all"):
+                        temp = n_ar.copy()
+                        #print(temp)
+                        str1 = ' '.join(str(a.upper()) for a in temp)
+                        print(str1)
+                    if(cmd=="isdigit"):
+                        temp = n1.isdigit()
+                        print(temp)
+                    if(cmd=="find"):
+                        temp = n1.find(val[1])
+                        print(temp)
+                    if(cmd=="reverse" and n == "list"):
+                        temp = n_ar.copy()
+                        temp.reverse()
+                        str1 = ' '.join(str(a) for a in temp)
+                        print(str1)
+                    if(cmd=="reverse" and n == "string"):
+                        #temp = n1.copy()
+                        #n1.reverse()
+                        print(n1[::-1])
+                        #n1.reverse()
+                    if(cmd=="append"):
+                        val1=int(val[1])
+                        temp = n_ar.copy()
+                        temp.append(val1) 
+                        str1 = ' '.join(str(a) for a in temp)
+                        print(str1)
+                    if(cmd=="insert"):
+                        pos=int(val[2])
+                        val=int(val[1])
+                        temp = n_ar.copy()
+                        temp.insert(pos,val)
+                        str1 = ' '.join(str(a) for a in temp)
+                        print(str1)
 
-                line1 = input()
-                if(line1 == 'string'):
-                    line2 = input()
-                    
-                    line3 = input()
-                    if(line3 == 'all caps'):
-                        print(toCaps(line2))
-                    
-                    line4 = input()
-                    if(line4 == 'reverse'):
-                        print(reversal(line2))
-                    
-                    line5 = input()
-                    if(line5 =='sort'):
-                        print(StringSort(line2))
                     
                     line6 = input()
                     if(line6 == 'isdigit'):
