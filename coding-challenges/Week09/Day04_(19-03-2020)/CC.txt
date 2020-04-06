@@ -1,11 +1,12 @@
-Question 1) 
+Question 1) What are the valid deadlock prevention schemes?
 
-Answer- Python Code(File- .py)-
+Answer- There are four deadlock prevention conditions:
+			
+			- Mutual exclusion-> This condition means that no process will have exclusive access to a resource.
 
-				
+			- Hold and Wait->  The hold and wait or resource holding conditions may be removed by requiring the processes to request all the resources they will need before starting up (or before embarking upon a particular set of operations).
 
-Question 2) 
+			- No Preemption->  The no preemption condition is difficult or impossible to avoid as a process has to be able to have a resource for a certain amount of time, or the processing outcome may be inconsistent or thrashing may occur.
 
-Answer- Python Code(File- .py)-
+			-Circular Wait-> Circular wait condition avoids the circular waits include disabling interrupts during critical sections and using a hierarchy to determine a partial ordering of resources.
 
-				

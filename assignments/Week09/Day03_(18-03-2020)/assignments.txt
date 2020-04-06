@@ -1,11 +1,27 @@
-Question 1- 
+Question 1- We have determined the minimum number of operations for a given matrix chain multiplication. Show the sequence it should follow in order to reach this minimum value.
 
-Answer- Python Code(File- .py)-
 
-		
+Answer- Python Code(File- Ques1.py)-
+			import sys 
 
-Question 2- 
 
-Answer- Python Code( .py)-
+			def matrixMultiplication(a, i, j): 
+
+			    if (i == j): 
+			        return 0
+			    minimumVal = sys.maxsize 
+			    for k in range(i, j):   
+			        counter = (matrixMultiplication(a, i, k) 
+			            + matrixMultiplication(a, k+1, j) 
+			                + a[i-1] * a[k] * a[j]) 
+			        if counter < minimumVal: 
+			            minimumVal = counter; 
+			    return minimumVal; 
+			 
+			user_input = [1, 2, 4, 3, 4] 
+			n = len(user_input)
+			print("Minimum value -> ", 
+			                matrixMultiplication(user_input, 1, n-1))
+
 
 		

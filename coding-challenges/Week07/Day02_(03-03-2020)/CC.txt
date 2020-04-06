@@ -1,3 +1,254 @@
-No CC given
+Question1- https://www.geeksforgeeks.org/prims-minimum-spanning-tree-mst-greedy-algo-5/
 
-				
+
+Answer- Python Code(File- Ques1.py)-
+
+		from collections import defaultdict
+		import heapq
+
+
+		def create_spanning_tree(graph, starting_vertex):
+		    mst = defaultdict(set)
+		    visited = set([starting_vertex])
+		    edges = [
+		        (cost, starting_vertex, to)
+		        for to, cost in graph[starting_vertex].items()
+		    ]
+		    heapq.heapify(edges)
+
+		    while edges:
+		        cost, frm, to = heapq.heappop(edges)
+		        if to not in visited:
+		            visited.add(to)
+		            mst[frm].add(to)
+		            for to_next, cost in graph[to].items():
+		                if to_next not in visited:
+		                    heapq.heappush(edges, (cost, to, to_next))
+
+		    return mst
+
+		example_graph = {
+		    'A': {'B': 2, 'C': 3},
+		    'B': {'A': 2, 'C': 1, 'D': 1, 'E': 4},
+		    'C': {'A': 3, 'B': 1, 'F': 5},
+		    'D': {'B': 1, 'E': 1},
+		    'E': {'B': 4, 'D': 1, 'F': 1},
+		    'F': {'C': 5, 'E': 1, 'G': 1},
+		    'G': {'F': 1},
+		}
+
+		dict(create_spanning_tree(example_graph, 'A'))
+
+
+
+Question2- https://www.geeksforgeeks.org/kruskals-minimum-spanning-tree-algorithm-greedy-algo-2/
+
+Answer-Python Code(File- Ques2.py)-
+
+			from collections import defaultdict
+
+			class Graph:
+
+			def__init__(self,vertices):
+			    self.V=vertices
+			    self.graph=[]
+
+			def addEdge(self,u,v,w):
+			    self.graph.append([u,v,w])
+
+			def find(self,parent,i):
+			    if(parent[i]==i):
+			        return i
+			    return self.find(parent, parent[i])
+
+			def union(self,parent,rank,x,y):
+			    xroot=self.find(parent,x)
+			    yroot=self.find(parent,y)
+			    if(rank[xroot] < rank[yroot]):
+			        parent[xroot] = yroot
+			    elif(rank[xroot] > rank[yroot]):
+			        parent[yroot] = xroot
+			    else:
+			        parent[yroot] = xroot
+			        rank[xroot] += 1
+
+			def KruskalMST(self):
+			    result = []
+			    i=0
+			    e=0
+			    self.graph = sorted(self.graph,key=lambda item:item[2])
+			    parent,rank = [],[]
+			    for node in range(self.V):
+			    parent.append(node)
+			    rank.append(0)
+			    while(e < self.V-1):
+			        u,v,w = self.graph[i]
+			        i+=1
+			        x = self.find(parent, u)
+			        y = self.find(parent, v)
+			        if(x != y):
+			            e+=1
+			            result.append([u,v,w])
+			            self.union(parent, rank, x, y)
+			        print("Following are the edges in the constructed MST")
+			        for u,v,weight in result:
+			            print("%d -- %d == %d" %(u,v,weight))
+
+			g = Graph(4)
+			g.addEdge(0,1,10)
+			g.addEdge(0,2,6)
+			g.addEdge(0,3,5)
+			g.addEdge(1,3,15)
+			g.addEdge(2,3,4)
+
+			g.KruskalMST()   
+
+
+
+Question3- https://www.geeksforgeeks.org/minimum-cost-connect-cities/
+
+Answer- Python Code(File- Ques3.py)-
+			class Solution(object):
+			   def find(self, x):
+			      if self.parent[x] == -1:
+			         return x
+			      self.parent[x] = self.find(self.parent[x])
+			      return self.parent[x]
+			   def union(self,x,y):
+			      parent_x = self.find(x)
+			      parent_y = self.find(y)
+			      if parent_x == parent_y:
+			         return
+			      self.parent[parent_y] = parent_x
+			   def minimumCost(self, n, connections):
+			      self.parent = [ -1 for i in range(n+1)]
+			      disjoint = n-1
+			      cost = 0
+			      c = sorted(connections,key=lambda v:v[2])
+			      i = 0
+			      while i<len(c) and disjoint:
+			         x = c[i][0]
+			         y = c[i][1]
+			         #print(x,y)
+			         if self.find(x)!=self.find(y):
+			            disjoint-=1
+			            cost+=c[i][2]
+			            self.union(x,y)
+			         i+=1
+			   return cost if not disjoint else -1  
+
+
+
+Question4- https://www.geeksforgeeks.org/level-order-tree-traversal/
+
+Answer- Python Code(File- Ques4.py)-
+
+			class Node:
+				def __init__(self,data):
+			        self.left = None
+			        self.right = None
+			        self.data = data
+
+			def level_order(queue):
+			    if len(queue) == 0:
+			        return
+			    node = queue[0]
+			    queue.pop(0)
+			    if node.left:
+			        queue.append(node.left)
+			    if node.right:
+			        queue.append(node.right)
+			    print node.data
+			    level_order(queue)
+
+			queue = list()
+			root = Node(1)
+			queue.append(root)
+			root.left = Node(2)
+			root.right = Node(3)
+			root.left.left = Node(4)
+			root.left.right = Node(5)
+			level__order(queue)
+
+			# 1 2 3 4 5   
+
+
+
+Question5- https://www.geeksforgeeks.org/check-if-two-trees-are-mirror/
+
+Answer- Python Code(File- Ques5.py)-
+
+			class node:
+			    def __init__(self,value):
+			        self.value = value 
+			        self.left = None   
+			        self.right = None  
+
+			class binarytree:
+			    def __init__(self,root): 
+			        self.root= node(root)
+
+			    def print_tree(self,traversal_type):
+			        if traversal_type == "inorder":
+			            return self.inorder_print(tree.root,"")
+			        else:
+			            print("Traversal type "+ traversal + " is not supported!!!")
+
+			    def inorder_print(self,start,traversal):
+			        if start:
+			            traversal = self.inorder_print(start.left,traversal)
+			            traversal +=(str(start.value))
+			            traversal =self.inorder_print(start.right,traversal)
+			        return traversal
+
+			tree = binarytree(1)   
+			tree.root.left = node(2)     
+			tree.root.right = node(3)
+			tree.root.left.left = node(4)
+			tree.root.left.right = node(5)
+			tree.root.right.left = node(6)
+			tree.root.right.right = node(7)
+			x = tree.print_tree("inorder") 
+			print("Inorder of tree 1:="+x)
+
+			def reverse(str):
+				return str[-1::-1]
+
+			tree = binarytree(1)   
+			tree.root.right = node(2)     
+			tree.root.left = node(3)
+			tree.root.right.left = node(5)
+			tree.root.right.right = node(4)
+			tree.root.left.left = node(7)
+			tree.root.left.right = node(6)
+			y=tree.print_tree("inorder")
+			print("Inorder of tree 2:="+y)
+			print("reverse of inorder of tree 2:="+reverse(y))
+			if(x == reverse(y)):
+			    print("Binary tree are mirror images of each other")
+			else:
+			    print("Not mirror images")
+
+
+
+
+Question6- https://www.geeksforgeeks.org/given-level-order-traversal-binary-tree-check-tree-min-heap/
+
+Answer- Python Code(File- Ques6.py)-
+
+			def Is_Minheap(arr,length):
+			    n_par = int(length/2 - 1)
+			    for i in range(n_par):
+			        if arr[i] > arr[2 * i + 1]:  
+			            return 0
+			        if ((2 * i + 2) < length) and (arr[i] > arr[2* i + 2]): 
+			                return 0
+			    return 1
+
+
+			level_order = [2, 4, 7, 8, 16, 9, 13, 11]  
+			n = len(level_order) 
+			if Is_Minheap(level_order, n):
+			    print('Tree is min-heap')
+			else:
+			    print('Tree is not min-heap')
