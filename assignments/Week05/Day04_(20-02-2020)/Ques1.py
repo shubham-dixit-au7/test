@@ -8,7 +8,7 @@ class Node:
         self.data = data  
         self.next = None
   
-def addToEmpty(head, data): 
+def addIt(head, data): 
     if (head != None): 
         return head 
     temp = Node(data) 
@@ -17,16 +17,26 @@ def addToEmpty(head, data):
     head.next = head 
     return head 
   
-def addBegin(head, data): 
+def addStart(head, data): 
     if (head == None): 
-        return addToEmpty(head, data)   
+        return appendIt(head, data)   
     temp = Node(data) 
     temp.data = data 
     temp.next = head.next
     head.next = temp 
     return head 
 
-def traverse(head):  
+def swapNodes(head): 
+    p = head 
+    while (p.next.next != head): 
+       p = p.next 
+    p.next.next = head.next
+    head.next = p.next
+    p.next = head 
+    head = head.next
+    return head 
+
+def traversal(head):  
     if (head == None): 
         print("List is empty.") 
         return
@@ -37,25 +47,16 @@ def traverse(head):
         print(p.data, end = " ") 
         p = p.next
   
-def exchangeNodes(head): 
-    p = head 
-    while (p.next.next != head): 
-       p = p.next 
-    p.next.next = head.next
-    head.next = p.next
-    p.next = head 
-    head = head.next
-    return head 
+
    
-if __name__=='__main__':  
-  
-    head = None
-    head = addToEmpty(head, 6) 
-    for x in range(5, 0, -1): 
-        head = addBegin(head, x) 
-    print("List Before: ", end = "") 
-    traverse(head) 
-    print()
-    print("List After: ", end = "") 
-    head = exchangeNodes(head) 
-    traverse(head) 
+
+head = None
+head = appendIt(head, 6) 
+for x in range(5, 0, -1): 
+    head = addStart(head, x) 
+print("Before: ", end = "") 
+traversal(head) 
+print()
+print("After: ", end = "") 
+head = swapNodes(head) 
+traversal(head) 

@@ -2,9 +2,10 @@
 
 #Answer-
 class Node:  
-    def __init__(self, next = None, prev = None, data = None):  
-        self.next = next 
-        self.prev = prev 
+    def __init__(self, next = None,  
+                       prev = None, data = None):  
+        self.next = next # reference to next node in DLL  
+        self.prev = prev # reference to previous node in DLL  
         self.data = data  
   
 def push(head, new_data):  
@@ -38,9 +39,10 @@ def rotate(start, N):
     while count < N and current != None : 
         current = current.next
         count += 1
+  
     if current == None : 
         return
-      NthNode = current  
+    NthNode = current  
     while current.next != None : 
         current = current.next
     current.next = start  
@@ -50,15 +52,20 @@ def rotate(start, N):
     NthNode.next = None
     return start 
   
+# Driver Code 
 if __name__ == "__main__": 
     head = None
+  
     head = push(head, 'e') 
     head = push(head, 'd') 
     head = push(head, 'c') 
     head = push(head, 'b') 
     head = push(head, 'a') 
+  
     printList(head) 
     print("\n") 
+      
     N = 2
     head = rotate(head, N) 
+  
     printList(head) 

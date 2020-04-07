@@ -11,7 +11,7 @@ class CircularLinkedList:
     def __init__(self):
         self.head = None
  
-    def append(self, data):
+    def add(self, data):
         node = Node(data)
         self.insert_at_end(node)
  

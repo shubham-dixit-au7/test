@@ -67,4 +67,41 @@ Question 3) Explain merge sort with [70,50,30,10,20,40,60] in 100 words.
 
 Answer- 
 
+                [70,50,30,10,20,40,60]
+
+              [70,50,30,10]  [20,40,60] 
+
+            [70,50]  [30,19]  [20,40]  [60] 
+
+    L    [70] [50] [30] [10]   [20] [40]  [60]  R
+
+           [50,70]  [10,30]   [20,40] [60]
+                   
+             [10,30,50,70]   [20,40,60]
+                 
+                [10,20,30,40,50,60,70]
+              
+Step 1= dividing main array into two sub array
+        1 + (len(arr)+1) // 2
+        mid = left +right//2
+
+        will continue the steps untill it crates N number of single length arr, where N == len(arr) 
+
+now the bottom array are single len and sorted array. So we need to combine them in a double length sorted array.
+
+from 70,50---50 is smaller [50,70]  ----1
+from 30,10---10 is smaller [10,30]  ----2
+from 20,40---20 is smaller [20,40]  ----3
+and 60 is already an sorted array   ----4
+
+now next step is combine these 2 length arrays to a sorted 4 length array
+
+from first two(1,2) array [50,70] and [10,30]
+   sorted array will be [10,30,50,70]
+
+from second two(3,4) array [20,40] and [60]
+   sorted array will be [20,40,60]   
+
+now the final sorted array from two previous sorted array [10,30,50,70] and [20,40,60] will be [10,20,30,40,50,60,70]
+
 				
