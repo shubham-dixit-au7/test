@@ -1,0 +1,92 @@
+Question 1) -   The FizzBuzz challenge goes something like this. Write a function that does the following:
+				● console logs the numbers from 1 to n, where n is the integer the function
+				takes as its parameter
+				● logs ​fizz​ instead of the number for multiples of 3
+				● logs ​buzz​ instead of the number for multiples of 5
+				● logs ​fizzbuzz​ for numbers that are multiples of both 3 and 5
+
+
+
+
+Answer- JavaScript Code(File- Ques1.js)-
+				function fizzbuzz(val){
+				  for (var i=1; i < val; i++){
+				    if (i % 15 == 0) console.log("FizzBuzz");
+				    else if (i % 3 == 0) console.log("Fizz");
+				    else if (i % 5 == 0) console.log("Buzz");
+				    else console.log(i);
+				}
+				}
+				//fizzbuzz(10);
+				fizzbuzz(100);
+
+				
+
+Question 2) -  	A word is an anagram of another word if both use the same letters in the same quantity,
+				but arranged differently.
+				Understanding the challenge
+				You can state this challenge in the following terms: 
+				write a function that checks if two	provided strings are anagrams of each other; 
+				letter casing shouldn’t matter. Also,consider only characters, not spaces or punctuation.
+				For example:
+				anagram('finder', 'Friend') --> true
+				anagram('hello', 'bye') --> false
+
+
+
+Answer- JavaScript Code(File- Ques2.js)-
+
+				var anagram = (str1, str2) => str1.toLowerCase().replace(/[^a-z\d]/g,'').split('').sort().join('') === str2.toLowerCase().replace(/[^a-z\d]/g,'').split('').sort().join('');
+
+				console.log(anagram('listen', 'Silent'));    // True
+				console.log(anagram('Shubham', 'Shivam'));   // False
+				console.log(anagram('finder', 'Friend'));    // True
+				console.log(anagram('hello', 'bye'));        // False
+
+				
+
+Question 3) -  	Find the Vowels
+				This is probably one of the less challenging challenges (no pun intended) — in terms of
+				difficulty — but that doesn’t detract from the fact that you could come across it during a
+				job interview. It goes like this.
+				Understanding the challenge
+				You can state the vowels challenge as follows: write a function that takes a string as
+				argument and returns the number of vowels contained in that string.
+				The vowels are “a”, “e”, “i”, “o”, “u”.
+				Examples:
+				findVowels('hello') // --> 2
+				findVowels('why') // --> 0
+
+
+
+Answer- JavaScript Code(File- Ques3.js)-
+				function findVowels(string){
+				  var count = 0;
+				  var vowels =["a", "e", "i", "o", "u"]
+				  for (let letter of string.toLowerCase()){
+				    if (vowels.includes(letter)) {
+				       count++
+				    }
+				}
+				return count;
+				}
+				console.log(findVowels('hello'));// --> 2
+				console.log(findVowels('why')); // --> 0
+				console.log(findVowels('The Quick Brown Fox Jumps Over The Lazy Dog')); // --> 5
+
+				
+
+Question 4) -   Create a function that takes a number as an argument, increments the number by +1 and returns the result.
+				Examples-
+				addition(0) ➞ 1
+				addition(9) ➞ 10
+				addition(-3) ➞ -2
+
+
+Answer- JavaScript Code(File- Ques4.js)-
+				function addition(val){
+				return ++val
+				}
+				console.log(addition(0)); //➞ 1
+				console.log(addition(9)); //➞ 10
+				console.log(addition(-3)); //➞ -2

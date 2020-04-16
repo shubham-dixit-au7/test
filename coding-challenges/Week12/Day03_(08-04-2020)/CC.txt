@@ -1,11 +1,130 @@
-Question 1) 
+Question 1) Create a function that returns the number of argument it was called with.
+			Examples-
+			numArgs() ➞ 0
+			numArgs("foo") ➞ 1
+			numArgs("foo", "bar") ➞ 2
+			numArgs(true, false) ➞ 2
+			numArgs({}) ➞ 1
 
-Answer- Python Code(File- .py)-
+
+
+Answer- JavaScript Code(File- Ques1.js)-
+
+				function numArgs() { 
+				var i = arguments.length; 
+				return i;
+				}
+
+				console.log(numArgs());
+				console.log(numArgs("foo"));
+				console.log(numArgs("foo", "bar"));
+				console.log(numArgs(true, false));
+				console.log(numArgs({}));
 
 				
 
-Question 2) 
+Question 2) -   Create a function that takes in a current mood and return a sentence in the following format: "Today, I am feeling {mood}". 
+				However, if no argument is passed, return "Today, I am feeling neutral".
+				Examples-
+				moodToday("happy") ➞ "Today, I am feeling happy"
+				moodToday("sad") ➞ "Today, I am feeling sad"
+				moodToday() ➞ "Today, I am feeling neutral"
 
-Answer- Python Code(File- .py)-
+
+Answer- JavaScript Code(File- Ques2.js)-
+
+				function currentMood(mood = "Neutral") {
+				  console.log("Today, I am feeling " + mood);
+				}
+				  
+				currentMood("Happy"); // ➞ "Today, I am feeling happy"
+				currentMood("Sad"); // ➞ "Today, I am feeling sad"
+				currentMood();  // ➞ "Today, I am feeling neutral"
 
 				
+
+Question 3) -   Create a function that determines whether or not it's possible to split a pie fairly given these three parameters:
+				Total number of slices.
+				Number of recipients.
+				How many slices each person gets.
+				The function will be in this form:
+				equalSlices(total slices, no. recipients, slices each)
+				Examples
+				equalSlices(11, 5, 2) ➞ true
+				// 5 people x 2 slices each = 10 slices < 11 slices
+				equalSlices(11, 5, 3) ➞ false
+				// 5 people x 3 slices each = 15 slices > 11 slices
+				equalSlices(8, 3, 2) ➞ true
+				equalSlices(8, 3, 3) ➞ false
+				equalSlices(24, 12, 2) ➞ true
+
+
+Answer- JavaScript Code(File- Ques3.js)-
+				function equalSlices(slices, recipients, share) {
+				  var isEqual ;
+				  if ( (recipients * share) <= slices) 
+				  {
+				    isEqual = true;
+				  } 
+				  else  
+				  {
+				    isEqual = false;
+				  }
+				  return isEqual;
+				}
+
+				console.log(equalSlices(11, 5, 2));  //➞ true
+				console.log(equalSlices(11, 5, 3));  //➞ false
+				console.log(equalSlices(8, 3, 2));   //➞ true
+				console.log(equalSlices(8, 3, 3));   //➞ false
+				console.log(equalSlices(24, 12, 2)); //➞ true
+
+				
+
+Question 4) -   Write a function that takes an integer and:
+				If the number is a multiple of 3, return "Hello".
+				If the number is a multiple of 5, return "World".
+				If the number is a multiple of both 3 and 5, return "Hello World".
+				Examples
+				helloWorld(3) ➞ "Hello"
+				helloWorld(5) ➞ "World"
+				helloWorld(15) ➞ "Hello World"
+
+
+Answer- JavaScript Code(File- Ques4.js)-
+				function helloWorld(val){
+				  if (val % 15 === 0)
+				    return "Hello World";
+				  else if (val % 5 === 0)
+				    return "World";
+
+				  else if (val % 3 === 0 )
+				    return "Hello";
+				}
+				console.log(helloWorld(3)); //➞ "Hello"
+				console.log(helloWorld(5)); //➞ "World"
+				console.log(helloWorld(15)); //➞ "Hello World"
+
+				
+
+Question 5) -	Write a function that validates whether two strings are identical. Make it case insensitive.
+				Examples-
+				match("hello", "hELLo") ➞ true
+				match("motive", "emotive") ➞ false
+				match("venom", "VENOM") ➞ true
+				match("mask", "mAskinG") ➞ false
+
+
+Answer- JavaScript Code(File- Ques5.js)-
+				function match(var1, var2){
+				  if (var1.toLowerCase() == var2.toLowerCase())
+				    return true;
+				  return false;
+				}
+
+				console.log(match("hello", "hELLo")); //➞ true
+				console.log(match("motive", "emotive")); //➞ false
+				console.log(match("venom", "VENOM")); //➞ true
+				console.log(match("mask", "mAskinG")); //➞ false
+
+

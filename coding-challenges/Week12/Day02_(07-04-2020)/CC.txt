@@ -1,11 +1,23 @@
-Question 1) 
+Question 1- Write a function to remove duplicates from an array.
 
-Answer- Python Code(File- .py)-
+Sample input- [1,2,3,4,3,2,1]
+Sample output - [1,2,3,4]
 
+
+Answer- JavaScript Code(File- Ques1.js)-
+				var removeDuplicates = (arr) => [...new Set(arr)];
+
+				console.log(removeDuplicates([1,2,3,4,3,2,1])); // [ 1, 2, 3, 4 ]
+				
 				
 
-Question 2) 
+Question 2) -  Given two strings, return true if they are anagrams of one another
+ 				For example: Mary is an anagram of Army
 
-Answer- Python Code(File- .py)-
+Answer- JavaScript Code(File- Ques2.js)-
+				var anagram = (str1, str2) => str1.toLowerCase().replace(/[^a-z\d]/g,'').split('').sort().join('') === str2.toLowerCase().replace(/[^a-z\d]/g,'').split('').sort().join('');
+
+				console.log(anagram('Mary', 'Army'));   // True
+				console.log(anagram('Shubham', 'Shivam'));   // False
 
 				
