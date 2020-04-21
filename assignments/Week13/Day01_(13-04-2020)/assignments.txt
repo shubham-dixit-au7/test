@@ -1,3 +1,64 @@
-No assignments given
+Question 1) Create a function that returns only strings with unique characters.
+			Examples-
+			filterUnique(["abb", "abc", "abcdb", "aea", "bbb"]) ➞ ["abc"]
+			"b" occurs in "abb" more than once, "b" occurs in "abcdb" more than once, etc.
+			filterUnique(["88", "999", "989", "9988", "9898"]) ➞ []
+			filterUnique(["ABCDE", "DDEB", "BED", "CCA", "BAC"]) ➞ ["ABCDE", "BED", "BAC"]
 
-		
+
+Answer- JavaScript Code(File- Ques1.js)-
+			function filterUnique(arr){
+			    let unique = [];
+			    for (let each of arr){
+			        if (each === each.split('').filter(function(item, i, ar){ return ar.indexOf(item) === i; }).join('')){
+			            unique.push(each);
+			        }
+			    }
+			    console.log(unique);
+			}
+			filterUnique(["abb", "abc", "abcdb", "aea", "bbb"]);
+			filterUnique(["88", "999", "989", "9988", "9898"]);
+			filterUnique(["ABCDE", "DDEB", "BED", "CCA", "BAC"]);
+
+
+
+Question 2) Create a function that takes two numbers as arguments (num, length) and returns an array of multiples of num up to length.
+			Examples
+			arrayOfMultiples(7, 5) ➞ [7, 14, 21, 28, 35]
+			arrayOfMultiples(12, 10) ➞ [12, 24, 36, 48, 60, 72, 84, 96, 108, 120]
+			arrayOfMultiples(17, 6) ➞ [17, 34, 51, 68, 85, 102]
+
+
+Answer- JavaScript Code(File- Ques2.js)-
+			function arrayOfMultiples(param1,param2){
+			    let res = [];
+			    for (let i = 1 ; i <= param2 ; i++ ){
+			        res.push(param1 * i);
+			    }
+			    console.log(res);
+			}
+			arrayOfMultiples(7, 5);
+			arrayOfMultiples(12, 10);
+			arrayOfMultiples(17, 6);
+
+
+
+
+Question 3) Create a function that takes an object and returns the keys and values as separate arrays.
+			Examples
+			keysAndValues({ a: 1, b: 2, c: 3 })
+			➞ [["a", "b", "c"], [1, 2, 3]]
+			keysAndValues({ a: "Apple", b: "Microsoft", c: "Google" })
+			➞ [["a", "b", "c"], ["Apple", "Microsoft", "Google"]]
+			keysAndValues({ key1: true, key2: false, key3: undefined })
+			➞ [["key1", "key2", "key3"], [true, false, undefined]]
+
+
+Answer- JavaScript Code(File- Ques1.js)-
+			function keysAndValues(obj){
+			    console.log((Object.keys(obj)),',',(Object.values(obj)));
+			}
+			keysAndValues({ a: 1, b: 2, c: 3 });
+			keysAndValues({ a: "Apple", b: "Microsoft", c: "Google" });
+			keysAndValues({ key1: true, key2: false, key3: undefined });
+
