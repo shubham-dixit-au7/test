@@ -1,0 +1,25 @@
+{
+  "name": "hbs-tennis-crud",
+  "version": "1.0.0",
+  "description": "crud operations processed",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "dev": "nodemon -e js,hbs"
+  },
+  "keywords": [
+    "express",
+    "hbs"
+  ],
+  "author": "Shubham Dixit",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "hbs": "^4.1.1"
+  },
+  "devDependencies": {
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.3"
+  }
+}

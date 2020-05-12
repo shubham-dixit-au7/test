@@ -1,0 +1,34 @@
+<html>
+  <body>
+    <br />
+    <h1 style="text-align: center;">Assignment Week 15 day 3-Ejs</h1>
+    <hr />
+    <h3>Use This Column for Post Method</h3>
+    <form action="/" method="post">
+      <p>id : Don't Worry i'll Create Your ID.</p>
+      <p>userId : <input type="Number" name="userId" /></p>
+      <p>Title : <input type="text" name="title" /></p>
+      <p>Body : <input type="text" name="body" /></p>
+      <p>Click On Submit To add to DataBase : <input type="submit" /></p>
+    </form>
+    <hr />
+    <% if (data == 0) { %>
+    <p style="font-size: larger;">No Data Found</p>
+    <%} else { %> <% if (data.length) { %>
+    <table style="float: left; border: 1px solid green;">
+      <tbody>
+        <% data.forEach((each) => { %>
+        <tr>
+          <td style="border: 1px solid grey; font-size: 1rem;">
+            <p>userId: <%= each.userId %></p>
+            <p>ID : <%= each.id %></p>
+            <p>Title : <%= each.title %></p>
+            <p>Body : <%= each.body %></p>
+          </td>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+    <% } %> <% } %>
+  </body>
+</html>

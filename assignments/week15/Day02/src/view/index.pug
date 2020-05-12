@@ -1,0 +1,9 @@
+html
+    head
+        title CRUD
+    body
+        p #{message}
+        p !{JSON.stringify(item)}
+        ul
+            each i in array
+                li #{JSON.stringify(i)}
